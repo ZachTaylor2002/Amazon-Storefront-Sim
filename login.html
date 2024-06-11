@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login Page</title>
+
+    <style>
+        input[type="text"] {
+            width: 31%; 
+            padding: 8px; 
+            box-sizing: border-box; 
+        }
+    </style>
+</head>
+<body>
+    <img src="images/Amazon-Logo.jpeg">
+
+    <div class="box">
+        <h1>Sign in</h1>
+        <label for="customer_email"><h3>Email or mobile phone number</h3></label>
+        <input type="text" id="email_phone" name="email_phone"><br><br>
+        <label for="customer_email"><h3>Password</h3></label>
+        <input type="text" id="password" name="password"><br><br>
+        <button onclick="redirectToStore()">Continue</button>
+
+        <p class="Spacing">By continuing, you agree to Amazon's <span class="more_info">Conditions of Use </span>and <span class="more_info">Privacy Notice</span>.</p>
+
+        <p class="Additional_info"> <span style="color:#6e6e73;">&#9654</span><span class="more_info"> Need help?</span></p>
+
+        <p><b>Buying for work?</b></p>
+        <p><span class="more_info">Shop on Amazon Business</span></p>
+
+        <p>
+            <span class="footer-link">Conditions of Use</span>
+            <span class="footer-link">Privacy Notice</span>
+            <span class="footer-link">Help</span>
+        </p>
+    
+        <p><span style="color:#6e6e73;">&#169 1996-2024, Amazon.com, Inc or its affiliates</span></p>
+    </div>
+    
+    <script>
+        function redirectToStore() {
+            window.location.href = "amazon.html";
+        }
+    </script>
+</body>
+</html>
