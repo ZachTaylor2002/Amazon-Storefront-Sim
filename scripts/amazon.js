@@ -1,4 +1,4 @@
-import {cart, addToCart} from '../data/cart.js';
+import { cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
 
 let productsHTML = '';
@@ -56,26 +56,45 @@ products.forEach((product) => {
           </button>
         </div>
     `;
-
 });
-document.querySelector('.js-products-grid').innerHTML =  productsHTML;
 
-function updateCartQuantity(){
+document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+function updateCartQuantity() {
     let cartQuantity = 0;
 
-        cart.forEach((cartItem)=> {
-            cartQuantity += cartItem.quantity;
-        });
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
 
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
 
+let timeoutMap = new Map(); // Map to store timeouts for each product
 
-document.querySelectorAll('.js-add-to-cart').forEach((button)=> { 
+document.querySelectorAll('.js-add-to-cart').forEach((button) => { 
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
         addToCart(productId);
         updateCartQuantity();
-    });
 
+        const productContainer = button.closest('.product-container');
+        const addedToCartMessage = productContainer.querySelector('.added-to-cart');
+
+        addedToCartMessage.classList.add('show');
+
+        // Clear any existing timeout for this product
+        if (timeoutMap.has(productId)) {
+            clearTimeout(timeoutMap.get(productId));
+        }
+
+        // Set a new timeout to hide the message after 2 seconds
+        const timeoutId = setTimeout(() => {
+            addedToCartMessage.classList.remove('show');
+            timeoutMap.delete(productId); // Remove the timeout from the map
+        }, 2000);
+
+        // Store the timeout ID in the map
+        timeoutMap.set(productId, timeoutId);
+    });
 });
