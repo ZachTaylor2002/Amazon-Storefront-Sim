@@ -28,7 +28,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="product-quantity-select">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -75,12 +75,14 @@ let timeoutMap = new Map(); // Map to store timeouts for each product
 document.querySelectorAll('.js-add-to-cart').forEach((button) => { 
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
-        addToCart(productId);
+        const productContainer = button.closest('.product-container');
+        const quantitySelect = productContainer.querySelector('.product-quantity-select');
+        const quantity = parseInt(quantitySelect.value, 10); // Get the selected quantity
+
+        addToCart(productId, quantity); // Pass the selected quantity to addToCart
         updateCartQuantity();
 
-        const productContainer = button.closest('.product-container');
         const addedToCartMessage = productContainer.querySelector('.added-to-cart');
-
         addedToCartMessage.classList.add('show');
 
         // Clear any existing timeout for this product
