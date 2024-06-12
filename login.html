@@ -19,9 +19,9 @@
 
     <div class="box">
         <h1>Sign in</h1>
-        <label for="customer_email"><h3>Email or mobile phone number</h3></label>
+        <label for="email_phone"><h3>Email or mobile phone number</h3></label>
         <input type="text" id="email_phone" name="email_phone"><br><br>
-        <label for="customer_email"><h3>Password</h3></label>
+        <label for="password"><h3>Password</h3></label>
         <input type="text" id="password" name="password"><br><br>
         <button onclick="redirectToStore()">Continue</button>
 
@@ -43,7 +43,14 @@
     
     <script>
         function redirectToStore() {
-            window.location.href = "amazon.html";
+            const emailPhone = document.getElementById('email_phone').value;
+            const password = document.getElementById('password').value;
+
+            if (emailPhone === "" || password === "") {
+                alert("Please enter both your email/phone and password.");
+            } else {
+                window.location.href = "amazon.html";
+            }
         }
     </script>
 </body>
