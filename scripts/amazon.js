@@ -100,3 +100,5 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         timeoutMap.set(productId, timeoutId);
     });
 });
+//This is need to make the cart show all of the items it has at all times 
+updateCartQuantity();
