@@ -1,7 +1,7 @@
 import { renderOrderSummary } from "./Checkout/orderSummary.js";
 import { renderPaymentSummary } from "./Checkout/paymentSummary.js";
 //import '../data/cart-class.js';
-import { getTotalItemsInCart } from '../../data/cart.js';
+import { getTotalItemsInCart ,  onCartChange} from '../../data/cart.js';
 
 
 
@@ -21,4 +21,5 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartItemCount();
     renderOrderSummary();
     renderPaymentSummary();
+    onCartChange(updateCartItemCount); 
 });
