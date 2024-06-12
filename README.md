@@ -1,1 +1,1 @@
-Amazon Storefront Simulator
+**Amazon Storefront Simulator**
