@@ -210,3 +210,18 @@
   margin-bottom: 15px;
 }
 
+.quantity-input {
+  width: 30px;
+  display: none;
+}
+
+.save-quantity-link {
+  display: none;
+}
+
+.is-editing-quantity  {
+  .quantity-input,
+  .save-quantity-link {
+    display: initial;
+  }
+}
