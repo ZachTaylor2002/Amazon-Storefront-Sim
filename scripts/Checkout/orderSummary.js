@@ -1,10 +1,9 @@
-import { cart, removeFromCart, updateDeliveryOption } from "../../data/cart.js";
+import { cart, removeFromCart, updateDeliveryOption, updateQuantityInCart } from "../../data/cart.js";
 import { products, getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, getDeilveryOption } from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from "./paymentSummary.js";
-
 
 export function renderOrderSummary() {
     let cartSummaryHTML = '';
@@ -48,7 +47,13 @@ export function renderOrderSummary() {
                                 <span>
                                     Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                                 </span>
-                                
+                                <span class="update-quantity-link link-primary js-update-link" data-product-id="${matchingProduct.id}">
+                                    Update
+                                </span>
+                                <input class="quantity-input js-quantity-input-${matchingProduct.id}" type="number" value="${cartItem.quantity}" style="display:none;">
+                                <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}" style="display:none;">
+                                    Save
+                                </span>
                                 <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                                     Delete
                                 </span>
@@ -104,6 +109,7 @@ export function renderOrderSummary() {
                 container.remove();
                 renderOrderSummary();
                 renderPaymentSummary();
+                updateHeaderItemCount(); // Update the header item count
             });
         });
 
@@ -113,7 +119,37 @@ export function renderOrderSummary() {
                 updateDeliveryOption(productId, deliveryOptionId);
                 renderOrderSummary();
                 renderPaymentSummary();
+                updateHeaderItemCount(); // Update the header item count
+            });
+        });
+
+        document.querySelectorAll('.js-update-link').forEach((link) => {
+            link.addEventListener('click', () => {
+                const productId = link.dataset.productId;
+                const input = document.querySelector(`.js-quantity-input-${productId}`);
+                const saveLink = document.querySelector(`.js-save-link[data-product-id="${productId}"]`);
+                input.style.display = 'inline';
+                saveLink.style.display = 'inline';
+                link.style.display = 'none';
+            });
+        });
+
+        document.querySelectorAll('.js-save-link').forEach((link) => {
+            link.addEventListener('click', () => {
+                const productId = link.dataset.productId;
+                const input = document.querySelector(`.js-quantity-input-${productId}`);
+                const quantity = parseInt(input.value, 10);
+                updateQuantityInCart(productId, quantity);
+                renderOrderSummary();
+                renderPaymentSummary();
+                updateHeaderItemCount(); // Update the header item count
             });
         });
     }
+}
+
+function updateHeaderItemCount() {
+    const totalItems = cart.reduce((sum, cartItem) => sum + cartItem.quantity, 0);
+    const itemCountElement = document.querySelector('.checkout-header-middle-section .return-to-home-link');
+    itemCountElement.textContent = `${totalItems} items`;
 }

@@ -86,3 +86,10 @@ export function updateDeliveryOption(productId, deliveryOptionId){
 export function getTotalItemsInCart(){
     return cart.reduce((total, cartItem) => total + cartItem.quantity, 0);
 }
+
+export function updateQuantityInCart(productId, quantity) {
+    const cartItem = cart.find(item => item.productId === productId);
+    if (cartItem) {
+        cartItem.quantity = quantity;
+    }
+}
