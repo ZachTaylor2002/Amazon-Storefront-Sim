@@ -1,4 +1,4 @@
-import { cart } from '../../data/cart.js';
+import { cart, getTotalItemsInCart, addToCart, removeFromCart } from '../../data/cart.js';
 import { getProduct } from '../../data/products.js';
 import { getDeilveryOption } from '../../data/deliveryOptions.js';
 import { formatCurrency } from '../utils/money.js';
@@ -55,6 +55,31 @@ export function renderPaymentSummary() {
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
     document.getElementById('place-order-button').addEventListener('click', () => {
+        // Save order details to localStorage
+        const orders = JSON.parse(localStorage.getItem('orders')) || [];
+        const newOrder = { id: generateOrderId(), date: new Date(), items: [...cart] };
+        orders.push(newOrder);
+        localStorage.setItem('orders', JSON.stringify(orders));
+
+        // Clear the cart
+        clearCart();
+
+        // Redirect to orders page
         window.location.href = 'orders.html';
     });
+}
+
+function generateOrderId() {
+    return 'xxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+function clearCart() {
+    while (cart.length > 0) {
+        cart.pop();
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
