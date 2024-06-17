@@ -1,4 +1,5 @@
-import { formatCurrency } from "../scripts/utils/money.js";
+import { formatCurrency } from "./scripts/utils/money.js";
+
 
 export function getProduct(productId){
   let matchingProduct;
