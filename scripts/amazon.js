@@ -1,5 +1,10 @@
-import { cart, addToCart } from '../data/cart.js';
+import { cart, addToCart } from './data/cart.js';
+import { products } from './data/products.js';
+
+/*
+Old: import { cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
+*/
 
 function renderProducts(productsToRender) {
   let productsHTML = '';
