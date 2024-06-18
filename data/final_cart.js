@@ -58,12 +58,8 @@ function renderOrders() {
                   <div class="product-quantity">
                     Quantity: ${cartItem.quantity}
                   </div>
-                  <button class="buy-again-button button-primary" data-product-id="${cartItem.productId}">
-                    <img class="buy-again-icon" src="images/icons/buy-again.png">
-                    <span class="buy-again-message">Buy it again</span>
-                  </button>
-                  <button class="remove-item-button button-secondary" data-order-id="${order.id}">
-                    Remove Item
+                  <button class="cancel-order-button button-secondary" data-order-id="${order.id}">
+                    Cancel Order
                   </button>
                 </div>
               </div>
@@ -74,16 +70,8 @@ function renderOrders() {
 
     ordersGrid.innerHTML = ordersHTML;
 
-    // Add event listeners to 'Buy it again' buttons
-    document.querySelectorAll('.buy-again-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = button.getAttribute('data-product-id');
-            addToCart(productId);
-        });
-    });
-
-    // Add event listeners to 'Remove Item' buttons
-    document.querySelectorAll('.remove-item-button').forEach(button => {
+    // Add event listeners to 'Cancel Order' buttons
+    document.querySelectorAll('.cancel-order-button').forEach(button => {
         button.addEventListener('click', () => {
             const orderId = button.getAttribute('data-order-id');
             removeOrder(orderId);
@@ -97,3 +85,26 @@ function removeOrder(orderId) {
     orders = orders.filter(order => order.id !== orderId);
     localStorage.setItem('orders', JSON.stringify(orders));
 }
+
+// Add the CSS for the 'Cancel Order' button
+const style = document.createElement('style');
+style.innerHTML = `
+    .cancel-order-button {
+        background-color: #ff4c4c; /* Bright red color */
+        color: white; /* White text */
+        border: none; /* Remove default border */
+        padding: 10px 20px; /* Padding for button */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+
+    .cancel-order-button:hover {
+        background-color: #e64444; /* Slightly darker red on hover */
+    }
+
+    .cancel-order-button:active {
+        background-color: #cc3c3c; /* Even darker red when clicked */
+    }
+`;
+document.head.appendChild(style);
