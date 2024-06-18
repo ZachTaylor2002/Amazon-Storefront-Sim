@@ -1,11 +1,11 @@
 # Amazon StoreFront Simulator
 
 Programmer: Zachary Taylor (Computer Science student at Middle Tennessee State University) <br>
-Video Demonstration:
+Video Demonstration: 
 
 ## Overview
 
-This project is a web application made with HTML, CSS, JavaScript, and Git, featuring the Day.js library for date manipulation and display.
+This project is a web-based application crafted with HTML, CSS, JavaScript, and Git, aiming to replicate the user experience of Amazon.com. It incorporates the Day.js library to handle date operations and presentation effectively.
 <br>
 <br>
 **Search through different items**
