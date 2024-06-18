@@ -1,6 +1,6 @@
 # Amazon StoreFront Simulator
 
-`Created and Developed by`: Zachary Taylor(Computer Science student at Middle Tennessee State University) <br>
+`Created and Developed` by: Zachary Taylor (Computer Science student at Middle Tennessee State University) <br>
 Video Demonstration: 
 
 ## Overview
