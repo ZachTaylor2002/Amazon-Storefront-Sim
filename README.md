@@ -5,7 +5,7 @@
 
 ## Overview
 
-This project is a web-based application crafted with HTML, CSS, JavaScript, and Git, aiming to replicate the user experience of Amazon.com. It incorporates the Day.js library to handle date operations and presentation effectively.
+This project is a web-based application made with HTML, CSS, JavaScript, and Git, aiming to replicate the user experience of Amazon.com. It incorporates the Day.js library to handle date operations and presentation effectively.
 <br>
 <br>
 <br>
