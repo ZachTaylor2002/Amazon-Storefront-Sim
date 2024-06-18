@@ -1,1 +1,1 @@
-<h2>**Amazon StoreFront Simulator**</h2>
+<h2><b>Amazon StoreFront Simulator</b></h2>
