@@ -6,8 +6,9 @@ Video Demonstration:
 ## Overview
 
 The Amazon StoreFront Simulator is a web application crafted with HTML, CSS, JavaScript, and Git, featuring the power-packed Day.js library for robust date manipulation and display.
-
+Search through different items
 ![image](https://github.com/ZachTaylor2002/Amazon-Storefront-Simulator/assets/124469454/d6b28bac-8377-40f2-b95c-057f24449d6a)
+Review your order before checkout
 ![image](https://github.com/ZachTaylor2002/Amazon-Storefront-Simulator/assets/124469454/03dce45e-b9ca-43a3-8447-b877836766f2)
 
 
