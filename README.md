@@ -7,10 +7,10 @@ Video Demonstration:
 
 This project is a web application made with HTML, CSS, JavaScript, and Git, featuring the Day.js library for date manipulation and display.
 <br>
-# Search through different items
+**Search through different items**
 ![image](https://github.com/ZachTaylor2002/Amazon-Storefront-Simulator/assets/124469454/d6b28bac-8377-40f2-b95c-057f24449d6a)
 <br>
-# Review your order before checkout
+**Review your order before checkout**
 ![image](https://github.com/ZachTaylor2002/Amazon-Storefront-Simulator/assets/124469454/03dce45e-b9ca-43a3-8447-b877836766f2)
 
 
