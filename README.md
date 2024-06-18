@@ -14,6 +14,11 @@ This project is a web-based application crafted with HTML, CSS, JavaScript, and 
 <br>
 **Review your order before checkout**
 ![image](https://github.com/ZachTaylor2002/Amazon-Storefront-Simulator/assets/124469454/03dce45e-b9ca-43a3-8447-b877836766f2)
+<br>
+<br>
+**See past orders and cancel orders**
+![image](https://github.com/ZachTaylor2002/Amazon-Storefront-Simulator/assets/124469454/8ca9fa8b-5309-4c5e-b260-8f7e6bf4dced)
+
 
 
 
