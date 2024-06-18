@@ -1,7 +1,8 @@
-import { cart, getTotalItemsInCart, addToCart, removeFromCart } from "../data/cart.js";
-import { getProduct } from "../data/products.js";
-import { getDeilveryOption } from "../data/deliveryOptions.js";
-import { formatCurrency } from "../utils/money.js";
+import { cart, getTotalItemsInCart, addToCart, removeFromCart } from '../../data/cart.js';
+import { getProduct } from '../../data/products.js';
+import { getDeilveryOption } from '../../data/deliveryOptions.js';
+import { formatCurrency } from '../utils/money.js';
+
 
 export function renderPaymentSummary() {
     let productPriceCents = 0;
@@ -49,12 +50,10 @@ export function renderPaymentSummary() {
             <div class="payment-summary-money">$${formatCurrency(totalCents)}</div>
         </div>
 
-        <button class="button-primary complete-order-button">Complete Order</button>
+        <button id="place-order-button" class="place-order-button button-primary">Place your order</button>
     `;
 
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
-}
-
 
     document.getElementById('place-order-button').addEventListener('click', () => {
         // Save order details to localStorage
