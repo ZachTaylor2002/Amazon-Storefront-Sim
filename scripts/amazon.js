@@ -1,9 +1,13 @@
+// Import cart and addToCart function from the data/cart.js module
 import { cart, addToCart } from '../data/cart.js';
+// Import products from the data/products.js module
 import { products } from '../data/products.js';
 
+// Function to render products
 function renderProducts(productsToRender) {
   let productsHTML = '';
 
+  // Loop through each product and create HTML for it
   productsToRender.forEach((product) => {
     productsHTML += `
       <div class="product-container">
@@ -49,30 +53,35 @@ function renderProducts(productsToRender) {
     `;
   });
 
+  // Set the inner HTML of the products grid to the generated HTML
   document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+  // If no products matched the search, display a message
   if (productsToRender.length === 0) {
     document.querySelector('.js-products-grid').innerHTML = '<p>No products matched your search.</p>';
   }
 
+  // Attach event listeners to the add-to-cart buttons
   attachAddToCartEventListeners();
 }
 
+// Function to attach event listeners to add-to-cart buttons
 function attachAddToCartEventListeners() {
   let timeoutMap = new Map(); // Map to store timeouts for each product
 
+  // Select all add-to-cart buttons and add click event listeners
   document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     button.addEventListener('click', () => {
-      const productId = button.dataset.productId;
-      const productContainer = button.closest('.product-container');
-      const quantitySelect = productContainer.querySelector('.product-quantity-select');
+      const productId = button.dataset.productId; // Get product ID from data attribute
+      const productContainer = button.closest('.product-container'); // Find the product container
+      const quantitySelect = productContainer.querySelector('.product-quantity-select'); // Find the quantity select element
       const quantity = parseInt(quantitySelect.value, 10); // Get the selected quantity
 
       addToCart(productId, quantity); // Pass the selected quantity to addToCart
-      updateCartQuantity();
+      updateCartQuantity(); // Update the cart quantity display
 
-      const addedToCartMessage = productContainer.querySelector('.added-to-cart');
-      addedToCartMessage.classList.add('show');
+      const addedToCartMessage = productContainer.querySelector('.added-to-cart'); // Find the added-to-cart message
+      addedToCartMessage.classList.add('show'); // Show the added-to-cart message
 
       // Clear any existing timeout for this product
       if (timeoutMap.has(productId)) {
@@ -91,25 +100,28 @@ function attachAddToCartEventListeners() {
   });
 }
 
+// Function to update the cart quantity display
 function updateCartQuantity() {
   let cartQuantity = 0;
 
+  // Calculate the total quantity of items in the cart
   cart.forEach((cartItem) => {
     cartQuantity += cartItem.quantity;
   });
 
+  // Update the cart quantity display
   document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
 
 // Search functionality
 document.querySelector('.search-button').addEventListener('click', () => {
-  const searchTerm = document.querySelector('.search-bar').value.toLowerCase();
-  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
-  renderProducts(filteredProducts);
+  const searchTerm = document.querySelector('.search-bar').value.toLowerCase(); // Get the search term
+  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm)); // Filter products by search term
+  renderProducts(filteredProducts); // Render the filtered products
 });
 
-// Initial render
+// Initial render of all products
 renderProducts(products);
 
-// This is needed to make the cart show all of the items it has at all times 
+// Update the cart quantity display to reflect the initial state of the cart
 updateCartQuantity();
