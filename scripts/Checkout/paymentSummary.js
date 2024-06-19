@@ -1,14 +1,17 @@
+// Import necessary functions and data from external modules
 import { cart, getTotalItemsInCart, addToCart, removeFromCart } from '../../data/cart.js';
 import { getProduct } from '../../data/products.js';
 import { getDeilveryOption } from '../../data/deliveryOptions.js';
 import { formatCurrency } from '../utils/money.js';
 
-
+// Function to render the payment summary section on the webpage
 export function renderPaymentSummary() {
+    // Initialize variables to hold prices and total items
     let productPriceCents = 0;
     let shippingPriceCents = 0;
     let totalItems = 0;
 
+    // Calculate product and shipping prices based on items in the cart
     cart.forEach((cartItem) => {
         const product = getProduct(cartItem.productId);
         productPriceCents += product.priceCents * cartItem.quantity;
@@ -18,10 +21,12 @@ export function renderPaymentSummary() {
         shippingPriceCents += deliveryOption.priceCents;
     });
 
+    // Calculate total before tax, tax, and total amount
     const totalBeforeTaxCents = productPriceCents + shippingPriceCents;
-    const taxCents = totalBeforeTaxCents * 0.1;
+    const taxCents = totalBeforeTaxCents * 0.1; // Assuming 10% tax
     const totalCents = totalBeforeTaxCents + taxCents;
 
+    // Generate HTML for payment summary section
     const paymentSummaryHTML = `
         <div class="payment-summary-title">Order Summary</div>
 
@@ -53,8 +58,10 @@ export function renderPaymentSummary() {
         <button id="place-order-button" class="place-order-button button-primary">Place your order</button>
     `;
 
+    // Display the generated HTML for payment summary on the webpage
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
+    // Event listener for 'Place Order' button
     document.getElementById('place-order-button').addEventListener('click', () => {
         // Save order details to localStorage
         const orders = JSON.parse(localStorage.getItem('orders')) || [];
@@ -70,6 +77,7 @@ export function renderPaymentSummary() {
     });
 }
 
+// Function to generate a random order ID
 function generateOrderId() {
     return 'xxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         const r = Math.random() * 16 | 0,
@@ -78,6 +86,7 @@ function generateOrderId() {
     });
 }
 
+// Function to clear the cart and update localStorage
 function clearCart() {
     while (cart.length > 0) {
         cart.pop();
