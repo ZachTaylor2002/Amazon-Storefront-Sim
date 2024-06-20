@@ -1,7 +1,7 @@
 # Amazon StoreFront Simulator
 
 `Programmer:` Zachary Taylor (Computer Science student at Middle Tennessee State University) <br>
-`Video Demonstration:` https://youtu.be/u1P6AIHIegY
+`Video Demonstration:` https://youtu.be/AvXXoZxcKoA
 
 ## Overview
 
