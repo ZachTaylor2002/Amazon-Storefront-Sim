@@ -1,8 +1,8 @@
-import { renderOrderSummary } from "./Checkout/orderSummary.js";
-import { renderPaymentSummary } from "./Checkout/paymentSummary.js";
+import { renderOrderSummary } from "./orderSummary.js";
+import { renderPaymentSummary } from "./paymentSummary.js";
 //import '../data/cart-class.js';
 
-import { getTotalItemsInCart ,  onCartChange} from '../../data/cart.js';
+import { getTotalItemsInCart ,  onCartChange} from './cart.js';
 
 
 

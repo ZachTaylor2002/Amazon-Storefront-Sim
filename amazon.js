@@ -1,7 +1,7 @@
 // Import cart and addToCart function from the data/cart.js module
-import { cart, addToCart } from '../data/cart.js';
+import { cart, addToCart } from './cart.js';
 // Import products from the data/products.js module
-import { products } from '../data/products.js';
+import { products } from './products.js';
 
 // Function to render products
 function renderProducts(productsToRender) {

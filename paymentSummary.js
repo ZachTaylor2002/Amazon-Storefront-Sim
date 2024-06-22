@@ -1,8 +1,8 @@
 // Import necessary functions and data from external modules
-import { cart, getTotalItemsInCart, addToCart, removeFromCart } from '../../data/cart.js';
-import { getProduct } from '../../data/products.js';
-import { getDeilveryOption } from '../../data/deliveryOptions.js';
-import { formatCurrency } from '../utils/money.js';
+import { cart, getTotalItemsInCart, addToCart, removeFromCart } from './cart.js';
+import { getProduct } from './products.js';
+import { getDeilveryOption } from './deliveryOptions.js';
+import { formatCurrency } from './money.js';
 
 // Function to render the payment summary section on the webpage
 export function renderPaymentSummary() {

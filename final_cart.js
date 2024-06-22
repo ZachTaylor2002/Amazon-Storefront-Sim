@@ -1,6 +1,6 @@
 // Import necessary functions from external modules
-import { getProduct } from '../../data/products.js';
-import { addToCart } from '../../data/cart.js';
+import { getProduct } from './products.js';
+//import { addToCart } from './cart.js';
 
 // When the DOM content is loaded, execute this function
 document.addEventListener('DOMContentLoaded', () => {

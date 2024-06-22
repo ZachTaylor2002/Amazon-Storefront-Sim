@@ -1,9 +1,9 @@
 // Import necessary functions and data from external modules
-import { cart, removeFromCart, updateDeliveryOption, updateQuantityInCart } from "../../data/cart.js";
-import { products, getProduct } from "../../data/products.js";
-import { formatCurrency } from "../utils/money.js";
+import { cart, removeFromCart, updateDeliveryOption, updateQuantityInCart } from "./cart.js";
+import { products, getProduct } from "./products.js";
+import { formatCurrency } from "./money.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'; // Importing dayjs library for date manipulation
-import { deliveryOptions, getDeilveryOption } from '../../data/deliveryOptions.js'; // Importing delivery options data
+import { deliveryOptions, getDeilveryOption } from './deliveryOptions.js'; // Importing delivery options data
 import { renderPaymentSummary } from "./paymentSummary.js"; // Importing function to render payment summary
 
 // Function to render the order summary section on the webpage
