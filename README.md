@@ -24,8 +24,6 @@ This project is a web-based application made with HTML, CSS, JavaScript, and Git
 
 
 
-
-
 ## Key Features
 
 - **Browse and Shop:** Dive into a simulated product catalog where you can explore various items at your leisure.
@@ -33,3 +31,23 @@ This project is a web-based application made with HTML, CSS, JavaScript, and Git
 - **Instant Cart Addition:** Add items to your cart with a single click, streamlining your shopping experience.
 - **Flexible Shipping Options:** Choose from a range of shipping methods, tailoring delivery to suit your preferences.
 - **Seamless Checkout:** Review your selected items, update quantities, and smoothly proceed to checkout, ensuring a hassle-free journey from cart to completion.
+<br>
+<br>
+
+## Deployment
+`1. Download the ZIP file:`
+• Go to the repository page on GitHub.
+• Click the green "Code" button located at the top right of the file list.
+• Select "Download ZIP".
+<br>
+`2. Extract the ZIP file:`
+• Locate the downloaded ZIP file on your computer (usually in the "Downloads" folder).
+• Right-click the ZIP file and select "Extract All..." or use your preferred extraction tool.
+<br>
+`3. Open the Folder using Visual Studio:`
+• Open Visual Studio Code.
+• Click on File > Open Folder... and select the extracted folder.
+• Ensure that you are in the amazon.html file.
+• Right-click on the amazon.html file and select Open with Live Server.
+
+
