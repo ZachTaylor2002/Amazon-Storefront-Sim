@@ -43,15 +43,15 @@ This project is a web-based application made with HTML, CSS, JavaScript, and Git
 <br>
 • Select "Download ZIP".
 <br>
-`2. Extract the ZIP file:`
 <br>
+`2. Extract the ZIP file:`
 <br>
 • Locate the downloaded ZIP file on your computer (usually in the "Downloads" folder).
 <br>
 • Right-click the ZIP file and select "Extract All..." or use your preferred extraction tool.
 <br>
-`3. Open the Folder using Visual Studio:`
 <br>
+`3. Open the Folder using Visual Studio:`
 <br>
 • Open Visual Studio Code.
 <br>
