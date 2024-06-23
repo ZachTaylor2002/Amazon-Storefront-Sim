@@ -9,7 +9,7 @@ This project is a web-based application made with HTML, CSS, JavaScript, Git, an
 <br>
 <br>
 <br>
-**Search through different items**
+**Search through different items** such as `women's` `sunglasses` `shirt` etc...
 ![image](https://github.com/ZachTaylor2002/Amazon-Storefront-Simulator/assets/124469454/d6b28bac-8377-40f2-b95c-057f24449d6a)
 <br>
 <br>
